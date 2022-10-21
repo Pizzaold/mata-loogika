@@ -23,7 +23,7 @@ binaryCount = len(binary_as_string)
 print(binaryCount)
 decimal_number = 0
 pow_Value = 0
-while(binaryCount > 0):
+while binaryCount > 0:
     print(binary_as_string[binaryCount - 1])
     decimal_number += pow(2, pow_Value) * int(binary_as_string[binaryCount - 1])
     binaryCount -= 1
