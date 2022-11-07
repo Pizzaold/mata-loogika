@@ -1,94 +1,109 @@
+"""Math exercises."""
 import math
 
-'''Practice different math expressions and calculations.'''
 
-#declare num_a and num_b
-num_a = 1
-num_b = 2
+def sum_and_difference(num_a: int, num_b: int) -> tuple:
+    """Return the sum and difference of given variables num_a and num_b."""
+    # Write your code here
+    sum = num_a + num_b
+    difference = num_a - num_b
+    return sum, difference
 
-# 1. Sum and difference
-sum = num_a + num_b
-#print(sum)
-difference = num_a - num_b
-#print(difference)
 
-# 2. Float division
-division = num_a / num_b
-#print(division)
+def float_division(num_a: int, num_b: int) -> float:
+    """Divide given variables num_a and num_b and return the result."""
+    # Write your code here
+    division = num_a / num_b
+    return division
 
-# 3. Integer division
-division = num_a // num_b
-#print(division)
 
-# 4. Powerful operations
-multiply_numbers = num_a * num_b
-#print(multiply_numbers)
-power = num_a ** num_b
-#print(power)
-remainder = num_a % num_b
-#print(remainder)
+def integer_division(num_a: int, num_b: int) -> int:
+    """Divide given variables num_a and num_b and return the result rounded down."""
+    # Write your code here
+    division = num_a // num_b
+    return division
 
-# 5. Find average
-average = num_a * num_b / 2
-#print(average)
 
-# decleare radius
-radius = 5
+def powerful_operations(num_a: int, num_b: int) -> tuple:
+    """Return the product of given variables, num_a to the power of num_b and the remainder of division of variables."""
+    # Write your code here
+    multiply_numbers = num_a * num_b
+    power = num_a ** num_b
+    remainder = num_a % num_b
+    return multiply_numbers, power, remainder
 
-# 6. Area of a circle
-circle_area = round(radius * math.pi ** 2, 2)
-#print(circle_area)
 
-# decleare side_length
-side_length = 5
+def find_average(num_a: int, num_b: int) -> float:
+    """Return the average of given variables."""
+    # Write your code here
+    average = (num_a + num_b) / 2
+    return average
 
-# 7. Area of an equilateral triangle
-height = math.sqrt(side_length ** 2 - (side_length / 2) ** 2)
-#print(height)
-triangle_area = side_length * height / 2
-#print(triangle_area)
 
-# decleare a, b & c
-a = 2
-b = 4
-c = 6
+def area_of_a_circle(radius: float) -> float:
+    """Calculate and return the area of a circle."""
+    # Write your code here
+    circle_area = round(math.pi * radius ** 2, 2)
+    return circle_area
 
-# 8. Calculate discriminant
-discriminant = b ** 2 - 4 * a * c
-#print(discriminant)
 
-# 9. Calculate hypotenuse length
-c = math.sqrt(a ** 2 + b ** 2)
-#print(c)
+def area_of_an_equilateral_triangle(side_length: float) -> int:
+    """Calculate and return the area of an equilateral triangle."""
+    # Write your code here
+    triangle_area = round(math.sqrt(3) / 4 * side_length ** 2)
+    return triangle_area
 
-# 10. Calculate cathetus length
-b = math.sqrt(c ** 2 - a ** 2)
-#print(b)
 
-# decleare seconds
-seconds = 42069
+def calculate_discriminant(a: int, b: int, c: int) -> int:
+    """Calculate discriminant with given variables and return the result."""
+    # Write your code here
+    discriminant = b ** 2 - 4 * a * c
+    return discriminant
 
-# 11. Time converter
-minutes = seconds / 60
-houre = minutes / 60
-minutes = int(60 * (houre % int(houre)))
-#print(f"{int(houre)}:{minutes}") #11:41
 
-# decleare angle
-angle = 69
+def calculate_hypotenuse_length(a: int, b: int) -> float:
+    """Return the length of hypotenuse when the lengths of the catheti are given."""
+    # Write your code here
+    c = math.sqrt(a ** 2 + b ** 2)
+    return c
 
-# 12. Student helper
-sine = round(math.sin(angle), 1)
-cosine = round(math.cos(angle), 1)
-#print(f"{sine} & {cosine}")
 
-# decleare n
-n = 10
+def calculate_cathetus_length(a: int, c: int) -> float:
+    """Return the length of cathetus when the lengths of the second cathetus and hypotenuse are given."""
+    # Write your code here
+    b = math.sqrt(c ** 2 - a ** 2)
+    return b
 
-# 13. Greetings
-lots_of_heys = n * "Hey"
-#print(lots_of_heys)
+"""Math exercises vol2."""
+import math
 
-# 14. Adding numbers
-string_numbers = str(num_a) + str(num_b)
-print(string_numbers)
+
+def time_converter(seconds: int) -> str:
+    """Convert time in seconds to hours and minutes."""
+    # Write your code here
+    minutes = seconds // 60
+    hours = minutes // 60
+    minutes %= 60
+    return f"{seconds} sekundit on {hours} tund(i) ja {minutes} minut(it)."
+
+
+def student_helper(angle: int) -> str:
+    """Return the sine and cosine of the given angle in degrees."""
+    # Write your code here
+    sine = round(math.sin(math.radians(angle)), 1)
+    cosine = round(math.cos(math.radians(angle)), 1)
+    return f"Nurk: {angle}, siinus: {sine}, koosinus: {cosine}."
+
+
+def greetings(n: int) -> str:
+    """Return a string that contains "Hey" n times."""
+    # Write your code here
+    lots_of_heys = n * "Hey"
+    return lots_of_heys
+
+
+def adding_numbers(num_a: int, num_b: int) -> str:
+    """Return given numbers added together as a string."""
+    # Write your code here
+    string_numbers = str(num_a) + str(num_b)
+    return string_numbers
