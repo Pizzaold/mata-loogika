@@ -1,0 +1,124 @@
+"""Solutions to be tested."""
+
+
+def students_study(time: int, coffee_needed: bool) -> bool:
+    """
+    Return True if students study in given circumstances.
+
+    (19, False) -> True
+    (1, True) -> False.
+    """
+    if time >= 18 and coffee_needed == False:
+        return True
+    elif 5 <= time <= 17 and coffee_needed == True:
+        return True
+    elif 1 <= time <= 4:
+        return False
+    else:
+        return False
+
+
+def lottery(a: int, b: int, c: int) -> int:
+    """
+    Return Lottery victory result 10, 5, 1, or 0 according to input values.
+
+    (5, 5, 5) -> 10
+    (2, 2, 1) -> 0
+    (2, 3, 1) -> 1
+    """
+    if a == b == c:
+        return 10
+    elif a == b or b == c or a == c:
+        return 5
+    elif a != b != c:
+        return 1
+    else:
+        return 0
+
+
+def fruit_order(small_baskets: int, big_baskets: int, ordered_amount: int) -> int:
+    """
+    Return number of small fruit baskets if it's possible to finish the order, otherwise return -1.
+
+    (4, 1, 9) -> 4
+    (3, 1, 10) -> -1
+    """
+    if ordered_amount > big_baskets * 5 + small_baskets:
+        return -1
+    elif ordered_amount % 5 > small_baskets:
+        return -1
+    else:
+        return ordered_amount - big_baskets * 5
+
+"""Tests for solution."""
+from solution import students_study, lottery, fruit_order
+
+
+def test__students_study__night_with_coffee__no_studying():
+    """During night with coffee students do not study."""
+    assert students_study(3, True) is False
+
+
+def test__students_study__day_with_coffee():
+    """During day with coffee students study."""
+    assert students_study(10, True) is True
+
+
+def test__students_study__night_without_coffee():
+    """During night without coffee students study."""
+    assert students_study(23, False) is True
+
+
+def test__students_study__day_without_coffee():
+    """During day without coffee students do not study."""
+    assert students_study(12, False) is False
+
+
+def test__lottery__all_numbers_are_equal():
+    """All numbers are equal."""
+    assert lottery(1, 1, 1) == 10
+
+
+def test__lottery__no_numbers_are_equal():
+    """No numbers are equal."""
+    assert lottery(1, 2, 3) == 5
+
+
+def test__lottery__all_numbers_are_different():
+    """All numbers are different."""
+    assert lottery(2, 3, 1) == 1
+
+
+def test__lottery__two_numbers_are_equal():
+    """Two numbers are equal."""
+    assert lottery(2, 2, 1) == 0
+
+
+def test__fruit_order__enough_small_baskets():
+    """Enough small baskets."""
+    assert fruit_order(4, 1, 9) == 4
+
+
+def test__fruit_order__not_enough_small_baskets():
+    """Not enough small baskets."""
+    assert fruit_order(3, 1, 10) == -1
+
+
+def test__fruit_order__not_enough_baskets():
+    """Not enough baskets."""
+    assert fruit_order(3, 1, 15) == -1
+
+
+def test__fruit_order__enough_baskets():
+    """Enough baskets."""
+    assert fruit_order(3, 2, 10) == 0
+
+
+def test__fruit_order__enough_baskets__big_baskets():
+    """Enough baskets."""
+    assert fruit_order(0, 2, 10) == 0
+
+
+def test__fruit_order__not_enough_baskets__big_baskets():
+    """Not enough baskets."""
+    assert fruit_order(0, 1, 10) == -1
